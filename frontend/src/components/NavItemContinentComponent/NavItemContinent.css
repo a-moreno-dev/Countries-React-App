@@ -1,0 +1,13 @@
+#nav-item {
+    height: 3.5em;
+}
+
+#nav-item svg {
+    font-size: 1.4em;
+    margin-bottom: -0.2em;
+    margin-right: 0.5em;
+}
+
+#nav-item svg.svg-arrow {
+  font-size: 0.7em;
+}
