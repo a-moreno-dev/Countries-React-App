@@ -22,6 +22,7 @@ Me diviertí mucho desarrollando la aplicación.
 - Se manejaron estados globales de App utilizando Redux.
 - Se realizó la implementación de React Hooks.
 
+## Cómo instalar la App
 
 ## Contactame
 - Gmail : <antonio.moreno.dev@gmail.com>
