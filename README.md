@@ -1,6 +1,6 @@
 ![Menu bar countries pi!](/assets/img/banner.png "Menu bar countries pi")
 
-# **Proyecto Countries-PI**
+# **Proyecto Countries-React-App**
 
 Esta aplicación fue desarrollada usando la API restcountries.com. Permite a los usuarios ver información relevante de países de todos los continentes del planeta, además de poder crear y gestionar actividades turísticas para luego asociarlas a un país. 
 
