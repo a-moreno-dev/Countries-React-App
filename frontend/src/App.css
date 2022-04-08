@@ -1,0 +1,29 @@
+header{
+    min-height: 10%;
+    box-sizing: border-box;
+}
+
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex: 1;
+}
+
+main > aside {
+    box-sizing: border-box;
+    min-height: 100%;
+    width: 12%;
+}
+
+main > section {
+    box-sizing: border-box;
+    min-height: 100%;
+    width: 76%;
+}
+
+footer{
+    display: none;
+}
