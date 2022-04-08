@@ -1,0 +1,10 @@
+.col-contients{
+    width: 12%;
+    padding-top: 1em;
+    height: 90vh;
+    position: fixed;
+}
+
+.col-contients > *:hover{
+    color: rgb(18, 194, 248);
+}
