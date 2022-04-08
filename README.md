@@ -25,8 +25,8 @@ Me diviertí mucho desarrollando la aplicación.
 ## Cómo instalar la App
 
 ## Galería de imágenes
-![Landing!](/assets/img/landing.jpg"Landing")
-![Index!](/assets/img/index.png "Index")
+![Landing!](/assets/img/landing.jpg "Landing")
+![Index!](/assets/img/index.jpg "Index")
 ![Detalles!](/assets/img/detalle.jpg "Detalles")
 ![Form!](/assets/img/form.jpg "Form")
 ![Activities!](/assets/img/addactivities.jpg "Activities")
