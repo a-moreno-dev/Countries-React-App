@@ -1,0 +1,282 @@
+#activity-container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.6em;
+  padding: 0.6em;
+  width: 100%;
+  height: 85vh;
+}
+
+#add-countries {
+  width: 100%;
+  font-size: 1.3em;
+  border: 0.1rem solid rgb(238, 238, 238);
+  background-color: rgb(255, 255, 255);
+  padding: 0.5em;
+  border-radius: 0.2em;
+}
+
+#activity-container a {
+  width: 100%;
+  text-decoration: none;
+  font-weight: 400;
+  color: #008dd3;
+}
+
+#activity-container a svg {
+  margin-bottom: -0.2em;
+  color: #008dd3;
+}
+
+#manage-activities {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  gap: 0.8em;
+  height: 75vh;
+}
+
+#manage-activities h1 svg{
+    color: #2ab8ff;
+    margin-bottom: -0.1em;
+    margin-right: 0.6em;
+    
+}
+
+#manage-activities h1 {
+  height: 2.4em;
+  margin-top: 1em;
+  color: rgb(0, 0, 0);
+}
+
+#form,
+#activities {
+  border: solid 0.1em rgb(238, 238, 238);
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.3em;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+#form {
+  width: 40%;
+}
+
+#activities {
+  width: 60%;
+}
+
+#activity-container h1 {
+  border-bottom: 0.1rem solid rgb(238, 238, 238);
+  text-align: center;
+  text-transform: capitalize;
+  color: rgb(107, 107, 107);
+  font-weight: 500;
+}
+
+#form-activity {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1em;
+  font-size: 0.9em;
+}
+
+#form-activity .form-control-group {
+  display: flex;
+  gap: 0.5em;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+#form-activity .form-control-group .form-control {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0.3em;
+}
+
+#form-activity .form-control {
+  margin-bottom: 1em;
+}
+
+.form-control input[type="text"],
+input[type="time"] {
+  height: 2.6em;
+  margin-top: 0.3em;
+  padding: 0.5em;
+  width: 100%;
+}
+
+input[type="range"] {
+  align-self: center;
+  color: #333333;
+  margin-left: 0.6em;
+  width: 96%;
+}
+
+datalist {
+  border: solid 0.1em #e7e7e7;
+  border-radius: 0.3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: -2em;
+  height: 3.8em;
+  margin-top: 0.8em;
+  padding: 0.8em;
+}
+
+datalist option {
+  color: #333333;
+}
+
+#form-activity .form-control-radios {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0.8em;
+}
+
+#form-activity .form-control-radios div label{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#form-activity .form-control-radios input[type="radio"]{
+  height: 2em;
+  width: 2em;
+  margin-bottom: 0.5em;
+}
+
+label {
+  color: #333;
+  display: inline;
+  font-size: 1.1em;
+}
+
+span.error {
+  color: rgb(255, 60, 60);
+  font-size: 0.8em;
+}
+
+.buttons {
+  border-top: solid 0.1em #e7e7e7;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+}
+
+.buttons button {
+  height: 100%;
+  padding: 0.6em;
+  width: 48%;
+  border: solid 0.1em #d1d1d1;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.3em;
+}
+
+.buttons button:hover {
+  background-color: #008dd3;
+  color: #ffffff;
+}
+
+#form-activity #validation table {
+  margin-top: 2em;
+  width: 100%;
+}
+
+#form-activity #validation table tr {
+  height: 1.8em;
+}
+
+#form-activity #validation table th {
+  width: 40%;
+  text-align: left;
+  color: #008dd3;
+}
+
+#validation span {
+  font-weight: 500;
+  font-size: 1em;
+}
+
+#validation span.success {
+  color: rgb(48, 153, 0);
+}
+
+#validation span.error {
+  color: rgb(211, 1, 1);
+}
+
+#content-overflow {
+  width: 100%;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+#content-overflow table{
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+#content-overflow table tr{
+    height: 2.5em;
+}
+
+#content-overflow table th{
+    height: 2em;
+}
+
+#content-overflow table td svg{
+    font-size: 1.1em;
+}
+
+::-webkit-scrollbar {
+  width: 0em;
+}
+
+#activities #edit,
+#delete {
+  text-align: center;
+}
+
+#edit {
+  color: #008dd3;
+}
+
+#delete {
+  color: #ff2525;
+}
+
+#content-overflow::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+#content-overflow::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#content-overflow::-webkit-scrollbar-thumb {
+  background-color: #85aaff;
+  outline: 1px solid rgb(111, 180, 245);
+  border-radius: 0.2em;
+}
+
+#content-overflow::-webkit-scrollbar-thumb:hover {
+  background: #dddddd;
+}
+
+#form-activity .form-control-group .form-control {
+  border-radius: 0.3em;
+}

@@ -1,0 +1,90 @@
+#activity-to-countries {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
+}
+
+#activity-to-countries .form-selects {
+  align-items: center;
+  border: solid 0.1em #ececec;
+  border-radius: 0.3em;
+  box-sizing: border-box;
+  padding: 0.8em;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  height: 4em;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.form-selects h1 svg {
+  color: #2ab8ff;
+  margin-bottom: -0.1em;
+  margin-right: 0.2em;
+}
+
+.form-selects h1 {
+  color: #008dd3;
+}
+
+.form-selects select {
+  border: solid 0.1em #ececec;
+  height: 100%;
+}
+
+.form-selects button {
+  border: solid 0.1em #d1d1d1;
+  background-color: #008dd3;
+  cursor: pointer;
+  border-radius: 0.3em;
+  color: #ffffff;
+  height: 100%;
+  width: 10%;
+}
+
+.form-selects button:hover {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+}
+
+/* COUNTRIES GRID */
+#activity-to-countries #country-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 1.7em;
+}
+
+#country-grid .card-container {
+    display: flex;
+    flex-direction: column;
+  width: 23%;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+
+#country-grid .card-container svg{
+    color: red;
+    width: 1.2em;
+    height: 1.2em;
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin-bottom: -0.9em;
+    margin-right: -0.2em;
+    z-index: 1000;
+}
+
+#country-grid .card-container .card {
+    background-image: none;
+  background-color: rgb(255, 255, 255);
+  align-self: flex-start;
+  justify-self: flex-start;
+  height: 5em;
+  overflow: hidden;
+  width: 100%;
+}
