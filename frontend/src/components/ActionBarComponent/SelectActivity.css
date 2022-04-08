@@ -1,0 +1,19 @@
+#form-actvities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid #e6e6e6 0.1em;
+    border-radius: 0.3em;
+    padding: 0.4em;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+#form-actvities svg {
+    font-size: 1.5em;
+    color: #072e8a;
+}
+
+#form-actvities select {
+    width: 90%;
+}

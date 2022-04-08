@@ -1,0 +1,97 @@
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 0.1em #ececec;
+}
+
+nav .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 26%;
+  color: rgb(255, 255, 255);
+  background-color: #0f172a;
+  margin-bottom: -0.1em;
+}
+
+nav .logo svg {
+  font-size: 2.5em;
+  margin-right: 0.3em;
+}
+
+nav .logo h1 {
+  font-size: 2em;
+}
+
+nav .logo:hover  {
+  color: rgb(18, 194, 248);
+}
+
+nav .menu {
+  display: flex;
+  justify-content: space-between;
+  width: 54%;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+nav .menu li {
+  color: #40547e;
+  cursor: pointer;
+}
+
+nav .menu li:hover {
+  color: rgb(0, 0, 0);
+}
+
+nav .menu li svg,
+input,
+select {
+  display: initial;
+}
+
+nav .menu li svg,
+select {
+  display: initial;
+  margin: 0%;
+}
+
+nav .menu li svg {
+  margin-bottom: -0.2em;
+  font-size: 1.4em;
+  color: #1343b3;
+  margin-right: 0.4em;
+}
+
+nav .menu li select {
+  color: #40547e;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+}
+
+nav .search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+nav .search input[type='text']{
+  margin-left: -1em;
+  padding: 0.3em;
+  padding-right: 1.4em;
+  width: 94%;
+  border: #6391fc solid 0.1em;
+  border-radius: 0.3em;
+  outline: none;
+}
+
+nav .search svg {
+  margin-left: -1.4em;
+  color: #154dcf;
+  font-size: 1.2em;
+}
