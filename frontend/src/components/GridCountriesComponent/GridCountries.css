@@ -1,0 +1,11 @@
+.grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    column-gap: 0.8em;
+    width: 100%;
+    height: 53vh;
+}
