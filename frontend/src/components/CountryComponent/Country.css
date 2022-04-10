@@ -1,0 +1,60 @@
+.card {
+    background-size: 16%;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-color: rgb(255, 255, 255);
+    background-position: right bottom;
+    background-image: url("./map-blue-mini.png");
+    box-shadow: rgba(0,191,255,0.52) 0px 1px 6px 0px;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: flex-start;
+    justify-self: flex-start;
+    margin-bottom: 0.8em;
+    height: 5em;
+    overflow: hidden;
+    width: 23.5%;
+}
+
+.card:hover {
+    box-shadow: rgba(0,191,255,0.52) 0px 2px 12px 3px;
+    box-shadow: rgba(0,191,255,0.52) 0px 2px 12px 3px;
+    color: #66ccff;
+}
+
+.card .card-flag{
+    width: 45%;
+    box-sizing: border-box;
+    border-right: solid rgb(238, 238, 238) 0.1rem;
+}
+
+.card .card-flag img{
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+}
+
+.card .card-info{
+    box-sizing: border-box;
+    width: 51%;
+    color: rgb(92, 92, 92);
+    text-align: center;
+    text-transform: capitalize;
+    margin-right: 0.4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card .card-info span{
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-top: 0.3em;
+    display: block;
+}
