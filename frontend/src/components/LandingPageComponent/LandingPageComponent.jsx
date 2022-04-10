@@ -17,10 +17,10 @@ const LandingPageComponent = () => {
                         the continents of the planet, as well as being able to manage
                         tourist activities and associate them with a specific country.
                         The technologies used:
-                        <div className='technology'>
-                            <strong>Front End</strong> ReactJS, Redux, Axios, JSON, HTML, CSS.<br/>
-                            <strong>Back End</strong> NodeJS, ExpressJS, PostgreSQL, Sequelize, Axios, JSON.
-                        </div>
+                        <br />
+                        <br />
+                        <strong>Front-End</strong> ReactJS, Redux, Axios, JSON, HTML, CSS.<br />
+                        <strong>Back-End</strong> NodeJS, ExpressJS, PostgreSQL, Sequelize, Axios, JSON.
                     </p>
                 </article>
             </article>

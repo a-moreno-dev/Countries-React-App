@@ -21,7 +21,7 @@ const ActivityToCountryComponent = () => {
     } = useSelector(state => state);
 
     let _countriesWithoutActivities = []
-    
+
     if (Array.isArray(activities) && activities.length > 0)
         _countriesWithoutActivities = countriesWithoutActivities;
 
@@ -32,13 +32,17 @@ const ActivityToCountryComponent = () => {
 
     const handlerActivitySelect = (event) => {
         const { value } = event.target;
-        if (Number(value) === 0) {
-            alert('This activity is not allowed.');
-            return;
+        try {
+            if (Number(value) === 0) {
+                alert('This activity is not allowed.');
+                return;
+            }
+            const name = event.target.options[event.target.selectedIndex].text;
+            setActivityOption({ ...activityOption, id: value, option: name });
+            dispatch(getCountriesWithoutActivity({ activityId: value }));
+        } catch (error) {
+            // write log file
         }
-        const name = event.target.options[event.target.selectedIndex].text;
-        setActivityOption({ ...activityOption, id: value, option: name });
-        dispatch(getCountriesWithoutActivity({ activityId: value }));
     }
 
     const [countryOption, setCountryOption] = useState('Select Countries');
@@ -69,7 +73,7 @@ const ActivityToCountryComponent = () => {
                 );
             }
             dispatch(
-                savetActivityToCountries({ activityCountries: activityCountries })
+                savetActivityToCountries({ activityCountries })
             );
         }
         return;
@@ -88,9 +92,9 @@ const ActivityToCountryComponent = () => {
         <div id='activity-to-countries'>
             <div className='form-selects'>
                 <h1><BsXDiamond /> Add Activity To Countries</h1>
-                <select 
-                onChange={(e) => handlerActivitySelect(e)}
-                style={{'width':'25%'}}>
+                <select
+                    onChange={(e) => handlerActivitySelect(e)}
+                    style={{ 'width': '25%' }}>
                     <option key={0} value={0}>{activityOption.option}</option>
                     {
                         activities.map(activity =>
@@ -101,9 +105,9 @@ const ActivityToCountryComponent = () => {
                             </option>)
                     }
                 </select>
-                <select 
-                onChange={handlerCountrySelect}
-                style={{'width':'25%'}}>
+                <select
+                    onChange={handlerCountrySelect}
+                    style={{ 'width': '25%' }}>
                     <option key={'default'} value={''}>{countryOption}</option>
                     {
                         _countriesWithoutActivities.map(country =>

@@ -11,11 +11,11 @@ const defaulStatistics = [
 export const setInitialState = () => {
     return async (dispatch) => {
         CountriesService.getInitialState()
-            .then(payload => dispatch({
-                type: ActionTypes.SET_INITIAL_STATE,
-                payload: { ...payload, 'statistics': defaulStatistics }
-            }))
-            .catch(payload => dispatch({ type: ActionTypes.DEFAULT_TYPE, payload }));
+        .then(payload => dispatch({
+            type: ActionTypes.SET_INITIAL_STATE,
+            payload: { ...payload, 'statistics': defaulStatistics }
+        }))
+        .catch(payload => dispatch({ type: ActionTypes.DEFAULT_TYPE, payload }));
         ;
     }
 }
@@ -23,7 +23,7 @@ export const setInitialState = () => {
 export const setStatistics = ({ statistics = defaulStatistics }) =>
     ({ type: ActionTypes.SET_ESTATISTICS, payload: statistics })
 
-export const setInitialStateAsync = () => {
+export const setInitialStateAsync_ = () => {
     return async (dispatch) => {
         const payload = await CountriesService.getInitialState();
         dispatch({ type: ActionTypes.SET_INITIAL_STATE, payload });

@@ -83,7 +83,7 @@ const AddActivityFormComponent = (
         handlerReset();
     }
     const escapeRegExp = (string) => {
-        return string.replace(/[."',ºª<>*+?^${}()\-;`|~=@#¿¡·![\]\\€&%$]/g, '');
+        return string.trim().replace(/[^a-z0-9-_]+/gi, "");
     }
     const seasons = ['fall', 'spring', 'summer', 'winter'];
     const handlerChange = (event) => {

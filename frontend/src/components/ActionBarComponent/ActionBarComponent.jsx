@@ -17,7 +17,6 @@ import {
 import './ActionBar.css'
 
 const ActionBarComponent = () => {
-    console.log('Start ActionBarComponent');
     const brouserNavigation = useNavigate();
     const dispatch = useDispatch();
     const handlerSelectChange = (event) => {

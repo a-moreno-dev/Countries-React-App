@@ -1,30 +1,31 @@
 import axios from "axios";
 import Country from "../country";
 
-const httpCountriesService = {};
+const httpService = {};
 const messages = { '200': 'OK', '201': 'OBJECT_CREATED', '204': 'NO_CONTENT', '404': 'DATA_NOT_FOUND' };
 const localServer = 'http://localhost:7600/';
 const remoteServer = 'https://restcountries.com/v2/';
 
-httpCountriesService.getInitialState = async () => {
+httpService.getInitialState = async () => {
     try {
-        const countriesPrimise = axios.get(`${localServer}countries`);
-        const activitiesPrimise = axios.get(`${localServer}activities`);
-        const [countries, activities] = await axios.all([countriesPrimise, activitiesPrimise]);
-        const countriesData = (countries.status === 200) ? countries.data : messages[countries.status];
-        const activitiesData = (activities.status === 200) ? activities.data : messages[activities.status];
-        return { countries: countriesData, activities: activitiesData };
+        const [_countries, _activities] = await Promise.allSettled([
+            axios.get(`${localServer}countries`),
+            axios.get(`${localServer}activities`)
+        ])
+        return {
+            countries: _countries.value.data,
+            activities: _activities.value.data
+        };
     } catch ({ message, name }) { return ({ message, name }); }
 }
 
-httpCountriesService.getCountriesByContinent = async ({ region }) => {
-    try {
-        const countries = await axios.get(`${localServer}continent/${region}`);
-        return ((countries.status === 200) ? countries.data : messages[countries.status]);
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.getCountriesByContinent = async ({ region }) => {
+    axios.get(`${localServer}/${region}`)
+        .then(countries => countries.data)
+        .catch(error => error);
 }
 
-httpCountriesService.getCountryDetail = async ({ code }) => {
+httpService.getCountryDetail = async ({ code }) => {
     try {
         const countryPromise = axios.get(`${remoteServer}alpha/${code}`);
         const activitiesPromise = axios.get(`${localServer}country-activities/${code}`);
@@ -49,80 +50,61 @@ httpCountriesService.getCountryDetail = async ({ code }) => {
     } catch ({ message, name }) { return ({ message, name }); }
 }
 
-httpCountriesService.searchCountry = async ({ countryName }) => {
-    try {
-        const country = await axios.get(`${localServer}countries?name=${countryName}`);
-        if (country.status === 200 && arrayLength(country.data)) {
-            return country.data.map(country => new Country({ data: country.data }))
-        }
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.searchCountry = async ({ countryName }) => {
+    axios.get(`${localServer}countries?name=${countryName}`)
+        .then(country => country.data.map(country => new Country({ data: country.data })))
+        .catch(({ message, name }) => ({ message, name }));
 }
 
-httpCountriesService.searchCountryAsync = async ({ countryName }) => {
-    try {
-        const country = await axios.get(`${localServer}countries?name=${countryName}`);
-        return ((country.status === 200) ? country.data : messages[country.status]);
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.getCountriesByActivity = async ({ activityId }) => {
+    axios.get(`${localServer}activity-countries/${activityId}`)
+        .then(activity => activity.data)
+        .catch(({ message, name }) => ({ message, name }));
 }
 
-httpCountriesService.getCountriesByActivity = async ({ activityId }) => {
-    try {
-        const { data } = await axios.get(`${localServer}activity-countries/${activityId}`);
-        return data;
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.getAvtivities = async () => {
+    axios.get(`${localServer}activities`)
+        .then(activities => activities.data)
+        .catch(({ message, name }) => ({ message, name }));
 }
 
-httpCountriesService.getAvtivities = async () => {
-    try {
-        const { data } = await axios.get(`${localServer}activities`);
-        return data;
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.createActivity = async ({ activity }) => {
+    axios.post(`${localServer}activity`, activity)
+        .then(activities => activities.data)
+        .catch(({ message, name }) => ({ message, name }));
 }
 
-httpCountriesService.createActivity = async ({ activity }) => {
-    try {
-        const activities = await axios.post(`${localServer}activity`, activity);
-        return (activities.status === 201) ? activities.data : messages[activities.status];
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.updateActivity = async ({ activity }) => {
+    axios.put(`${localServer}update-activity/${activity.id}`, activity)
+        .then(activities => activities.data)
+        .catch(({ message, name }) => ({ message, name }));
 }
 
-httpCountriesService.updateActivity = async ({ activity }) => {
-    try {
-        const { data } = await axios.put(`${localServer}update-activity/${activity.id}`, activity);
-        return data;
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.removeActivity = async ({ activityId }) => {
+    axios.delete(`${localServer}remove-activity/${activityId}`)
+        .then(activities => activities.data)
+        .catch(({ message, name }) => ({ message, name }));
 }
 
-httpCountriesService.removeActivity = async ({ activityId }) => {
-    try {
-        const { data } = await axios.delete(`${localServer}remove-activity/${activityId}`);
-        return data;
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.removeActivityFromCountry = async ({ countryId, activityId }) => {
+    axios.delete(`${localServer}remove-activity-from-country/${countryId}/${activityId}`)
+        .then(activities => activities.data)
+        .catch(({ message, name }) => ({ message, name }));
 }
 
-httpCountriesService.removeActivityFromCountry = async ({ countryId, activityId }) => {
-    try {
-        const { data } = await axios.delete(`${localServer}remove-activity-from-country/${countryId}/${activityId}`);
-        return data;
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.addActivityToCountry = async ({ countryId, activityId }) => {
+    axios.post(`${localServer}add-activity-to-country`, { countryId, activityId })
+        .then(activity => activity.data)
+        .catch(({ message, name }) => ({ message, name }));
 }
 
-httpCountriesService.addActivityToCountry = async ({ countryId, activityId }) => {
-    try {
-        const response = await axios.post(`${localServer}add-activity-to-country`, { countryId, activityId });
-        if (response.status === 201 && objectLength(response.data)) return response.data;
-        return messages[response.status]
-    } catch ({ message, name }) { return ({ message, name }); }
-}
-
-httpCountriesService.addActivityToCountries = async ({ activityCountries }) => {
-    try {
-        const { data } = await axios.post(`${localServer}add-activity-to-countries`, { activityCountries });
-        return data;
-    } catch ({ message, name }) { return ({ message, name }); }
+httpService.addActivityToCountries = async ({ activityCountries }) => {
+    axios.post(`${localServer}add-activity-to-countries`, { activityCountries })
+        .then(activities => activities.data)
+        .catch(({ message, name }) => ({ message, name }));
 };
 
 const objectLength = (object) => (Object.entries(object).length > 0 ? true : false);
 const arrayLength = (array) => (Array.isArray(array) && array.length > 0 ? true : false);
 
-export default httpCountriesService;
+export default httpService;
