@@ -35,6 +35,5 @@ Me diviertí mucho desarrollando la aplicación.
 ![Activities!](/assets/img/addactivities.jpg "Activities")
 ## Contactame
 - Gmail : <antonio.moreno.dev@gmail.com>
-- Tel. y WhatsApp : (+57) 318 4147443, 302 8526073
 - LinkedIn : [a-moreno-dev](https://www.linkedin.com/in/a-moreno-dev/)
 
